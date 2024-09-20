@@ -19,13 +19,30 @@
         const positiveElement = <h1>앞으로 점점 더 재밌어질꺼야 ㅠㅠㅠㅠㅠ</h1>;
         const negativeElement = <h1>복습을 좀 하세요 ㅠㅠㅠ</h1>;
 
-        root.render(
-            (answer === 1)? positiveElement:negativeElement
-        );
+        // root.render(
+        //     (answer === 1)? positiveElement:negativeElement
+        // );
 
-        // 2. $$ 연산자를 이용하여 조건부 엘리먼트 생성 (조건이 맞을때만)
-        const element = (answer === 1) && <h1>앞으로 점점 더 재밌어질꺼야 ~!</h1>;
+        // 2. && 연산자를 이용하여 조건부 엘리먼트 생성 (조건이 맞을때만)
+        // const element = (answer === 1) && <h1>앞으로 점점 더 재밌어질꺼야 ~!</h1>;
+        // root.render(element);
+
+        // 3. jsx 내에서 조건부로 엘리먼트 생성하기
+
+        // 3-1. if 문으로 조건부 엘리먼트 생성하기
+        // let element;
+        // if(answer ===1){
+        //     element = <h1>앞으로 점점 더 재밌어 질꺼야</h1>
+        // }else{
+        //     element = <h1> 복습좀하세요 </h1>
+        // }
+
+        // 3-2. 삼한 연산자로 조건부 엘리먼트 생성하기
+        const element = (answer === 1)? <h1>앞으로 점점 더 재밌어 질꺼야</h1>
+                                                     : <h1> 복습좀하세요 </h1>;
         root.render(element);
+
+
 
 
     </script>

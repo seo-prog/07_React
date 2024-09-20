@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root"></div>
+    <script type="text/babel">
+        const {useState} = React;
+
+        function App(){
+
+            const[price ,setPrice] = useState("");
+            const[total,setTotal] = useState("");
+            const[too,setToo] = useState(0);
+
+
+            const onChangePrice = e =>{
+                setPrice(e.target.value);
+            }
+
+            const onChangetotal = e => {
+                setTotal(e.target.value)
+            }
+
+            const onClickHandler= e => {
+                setToo(price*total);
+                
+            }
+
+            return(
+            <>
+            <h1>상품 주문 시스템</h1>
+
+            <label>상품 가격 : </label>
+            <input type="text" name = "상품가격" placeholder= "가격 입력"
+            value = {price} onChange = {onChangePrice}/>
+            <br/>
+            <label>상품 수량 : </label>
+            <input type="text" name = "상품수량" placeholder= "수량 입력"
+            value = {total} onChange = {onChangetotal}/>
+            <br/>
+            <button onClick = {onClickHandler}>총합계산</button>
+            <h3>{`총합 : ${too}`} </h3>
+            
+            </>
+        )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+    
+    </script>
+    
+</body>
+</html>

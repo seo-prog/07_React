@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <!-- props 구조 분해 할당 -->
+
+    <div id = "root"></div>
+    <script type="text/babel">
+
+        function PropsPrinter({name,children}){
+            return(
+                <>
+                <h1>{name}</h1>
+                <h3>{children}</h3>
+                </>
+            )
+        }
+
+       const PropsPrinter2 = ({name, children})=>{ // function 이 아니라 const 에 담아줘야함.
+            return( // return 이 암묵적으로 들어가있기에 여러줄일 경우엔 명시하고 한줄일 경우에는 생략 가능다..
+                <>
+                <h1>{name}</h1>
+                <h3>{children}</h3>
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render([
+
+             <PropsPrinter name = "홍길동">텍스트노드</PropsPrinter>,
+            <PropsPrinter2 name = "홍길동이">텍스트노드</PropsPrinter2>
+
+        ])
+
+        
+
+
+    </script>
+    
+</body>
+</html>

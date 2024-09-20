@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root"></div>
+    
+    <script type="text/babel">
+        const {useState} = React;
+
+
+        function CounterComponent(props){ // CounterComponent의 프로퍼티기에 props를 받아서 사용할 수 있는것이다..
+
+            const[initialCount,setinitialCount] = useState(props.initialCount);
+            return(
+            <>
+            <h2>{`현재카운트 : ${initialCount}`}</h2>
+            <button onClick = {() => setinitialCount(initialCount+1)}>+1 증가</button>
+            <button onClick = {() => setinitialCount(props.initialCount)}>초기화</button>
+            </>
+        )}
+        // initialCount 는 CounterComponent 의 프로퍼티이기에 부를 수 있다. 어디서든 !
+
+        function App() {
+      return (
+        <div>
+          <h1>Props와 useState 활용</h1>
+          <CounterComponent initialCount={10} />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+    </script>
+    
+</body>
+</html>

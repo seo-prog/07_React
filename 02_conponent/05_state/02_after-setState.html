@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root"></div>
+
+    <!-- 
+        setState 이후 특정 작업 실행하기
+        실행 이후 특정한 작업을 실행하고 싶을 때 두 번째 인자로 콜백함수를 전달하여 처리가능..
+     -->
+    <script type="text/babel">
+        // 클래스 필드 문법(생성자 없이 state 정의)
+        class Light extends React.Component{
+
+            state = {
+                isOn:false
+            };
+
+            render(){
+
+                const {isOn} = this.state;
+
+                const style = {
+                    width : 200,
+                    height : 200,
+                    backgroundColor : isOn? "green":"red",
+                    transition : "2S"
+                }
+
+                return (
+                    <>
+                    <div style = {style}></div>
+
+                    <button onClick = {()=>{
+                        
+                        // 콜백함수는다른 코드의 인수로서 넘겨주는 실행 가능한 코드를 말한다..
+                        // 다른 함수의 실행이 끝난 후 실행되는 콜백함수..
+                        // setState(1,2) 이런식의 형태인거임.. 
+                        
+                        this.setState({isOn:!isOn},// 첫 번째 인자
+                        ()=>console.log(isOn? "불이 켜졌습니다":"불이 꺼졌습니다")) // 두 번째 인자
+                        // 밑에꺼가 콜백 함수인데 첫번째 인자가 실행되고 콜백함수가 실행된다..
+                        
+                    }}> {isOn? "on":"off"}</button>
+                    </>
+                )}}
+            
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<Light/>);
+    </script>
+    
+</body>
+</html>

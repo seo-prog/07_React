@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id = "root"></div>
+    <script type="text/babel">
+
+        const {useState} = React;
+
+        function Num(){
+        
+            const[number,setNumber] = useState(0);
+            const[color,setColor] = useState("black");
+            // setnumber 는 함수니까 setnumber(10)하묜 10을 number 에 넣어주겠다는 의미 ~!
+
+            return(
+
+                <>
+                <button style = {{backgroundColor:'yellow'}}onClick = {() => setNumber(number+1)}>+1</button>
+                <button style = {{backgroundColor:'lightpink'}}onClick = {() => setNumber(number-1)}>-1</button>
+                <button style = {{backgroundColor:'lightgreen'}}onClick = {() => setColor("blue")}>Blue</button>
+                <button style = {{backgroundColor:'skyblue'}}onClick = {() => setColor("green")}>Green</button>
+                <button style = {{backgroundColor:'pink'}}onClick = {() => setColor("Orange")}>Orange</button>
+
+                <h1 style = {{color}}> Number~ : {number}</h1>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<Num/>);
+    </script>
+    
+</body>
+</html>
