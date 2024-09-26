@@ -15,6 +15,15 @@ import { UseMemoComponent } from "./03_useMemo/03_performance-useMemo";
 import { LocationComponent } from "./03_useMemo/04_object-type-problem";
 import SquareCalculator from "./03_useMemo/05_question";
 import { App90 } from "./03_useMemo/06_que2";
+import CllBackProblem from "./04_usecallback/01_problem";
+import FunctionMemoization from "./04_usecallback/02_function-memoization";
+import CallbackComponent from "./04_usecallback/03_components";
+import UseRefCounter from "./05_useRef/02_useRef";
+import LoginComponent from "./05_useRef/03_inputRef";
+import Gesipan from "./05_useRef/00_practice";
+import Page from "./06_useContext/01_props-dribbling";
+import ContextContainer from "./06_useContext/02_useContext";
+import CustomKooks from "./07_custom-hooks/02_custom-hooks";
 
 
 function App() {
@@ -38,7 +47,16 @@ function App() {
     {/* <UseMemoComponent/> */}
     {/* <LocationComponent/> */}
     {/* <SquareCalculator/> */}
-    <App90/>
+    {/* <App90/> */}
+    {/* <CllBackProblem/> */}
+    {/* <FunctionMemoization/> */}
+    {/* <CallbackComponent/> */}
+    {/* <UseRefCounter/> */}
+    {/* <LoginComponent/> */}
+    <Gesipan/>
+    {/* <Page/> */}
+    {/* <ContextContainer/> */}
+    {/* <CustomKooks/> */}
     </>
   );
 }
