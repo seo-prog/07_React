@@ -1,0 +1,7 @@
+
+/* . 은 클래스 네임 쓸 때 // 띄우고 쓰면 Menu 박스의 자손들의 div 에 접근한다는 의미*/
+.MenuBox div {
+    display: inline-block;
+    margin: 5px;
+
+}
